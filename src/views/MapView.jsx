@@ -3,7 +3,7 @@ import GoogleMapReact from 'google-map-react';
 
 class Image extends React.Component {
   render() {
-    return <img width={36} height={36} src={require('../assets/marker.png')}/>;
+    return <img width={36} height={36} alt="GoogleMap" src={require('../assets/marker.png')}/>;
   }
 }
 
