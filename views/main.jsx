@@ -5,7 +5,7 @@ import React from 'react';
 
 export default class Main extends React.Component {
   render() {
-    return <div class="App-header">Hello from React with ES6 :)</div>;
+    return <div>Hello from React with ES6 :)</div>;
   }
 }
 
