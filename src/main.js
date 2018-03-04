@@ -1,6 +1,6 @@
 const electron = require("electron");
 const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const {BrowserWindow} = require('electron')
 const path = require("path");
 const url = require("url");
 
@@ -8,25 +8,13 @@ const url = require("url");
 let mainWindow;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({ width: 1920, height: 1080 });
-
-  const startUrl =
-    process.env.ELECTRON_START_URL ||
-    url.format({
-      pathname: path.join(__dirname, "/../build/index.html"),
-      protocol: "file:",
-      slashes: true
+  mainWindow = new BrowserWindow({width: 1280, height: 1024});
+    mainWindow.loadURL('file://' + __dirname + '/index.html');
+    mainWindow.on('closed', () => {
+      mainWindow = null;
     });
-  mainWindow.loadURL(startUrl);
 
   mainWindow.webContents.openDevTools();
-
-  mainWindow.on("closed", function() {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null;
-  });
 
   const {
     default: installExtension,

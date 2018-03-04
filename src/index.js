@@ -1,6 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./app";
-import "./css/index.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Main from '../views/main.jsx';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+window.onload = function(){
+  ReactDOM.render(<Main />, document.getElementById('app'));
+}
