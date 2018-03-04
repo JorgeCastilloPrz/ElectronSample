@@ -4,4 +4,4 @@ Basics on how to prepare the environment to build electron apps.
 This project is just for self teaching some ideas.
 
 Following [Buzz](https://github.com/pedrovgs/Buzz) form @pedrovgs, if you are here with didactic purposes
-please take a look at [Buzz](https://github.com/pedrovgs/Buzz) very descriptive step-by-step PRs.
+please take a look at [Buzz](https://github.com/pedrovgs/Buzz/pulls) very descriptive step-by-step PRs.
