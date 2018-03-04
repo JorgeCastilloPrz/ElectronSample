@@ -1,18 +1,31 @@
 const electron = require("electron");
+// Module to control application life.
 const app = electron.app;
-const { BrowserWindow } = require("electron");
+// Module to create native browser window.
+const BrowserWindow = electron.BrowserWindow;
 
-// Ref for avoid gc
+const path = require("path");
+const url = require("url");
+
+// ref to avoid release on gc
 let mainWindow;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({ width: 1280, height: 1024 });
-  mainWindow.loadURL("file://" + __dirname + "/index.html");
-  mainWindow.on("closed", () => {
+  mainWindow = new BrowserWindow({ width: 800, height: 600 });
+
+  // and load the index.html of the app.
+  const startUrl =
+    process.env.ELECTRON_START_URL ||
+    url.format({
+      pathname: path.join(__dirname, "/../build/index.html"),
+      protocol: "file:",
+      slashes: true
+    });
+  mainWindow.loadURL(startUrl);
+  mainWindow.webContents.openDevTools();
+  mainWindow.on("closed", function() {
     mainWindow = null;
   });
-
-  mainWindow.webContents.openDevTools();
 
   const {
     default: installExtension,
@@ -26,9 +39,8 @@ function createWindow() {
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
 app.on("ready", createWindow);
-
-// Quit app except on Mac where CMD+Q is usual.
 app.on("window-all-closed", function() {
   if (process.platform !== "darwin") {
     app.quit();
