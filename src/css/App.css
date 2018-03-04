@@ -9,9 +9,13 @@
 
 .App-header {
     background-color: #222;
-    height: 150px;
+    height: 25vh;
     padding: 20px;
     color: white;
+}
+
+.App-header a {
+  color: #bfefff;
 }
 
 .App-intro {
