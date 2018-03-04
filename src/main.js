@@ -1,18 +1,16 @@
 const electron = require("electron");
 const app = electron.app;
-const {BrowserWindow} = require('electron')
-const path = require("path");
-const url = require("url");
+const { BrowserWindow } = require("electron");
 
 // Ref for avoid gc
 let mainWindow;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({width: 1280, height: 1024});
-    mainWindow.loadURL('file://' + __dirname + '/index.html');
-    mainWindow.on('closed', () => {
-      mainWindow = null;
-    });
+  mainWindow = new BrowserWindow({ width: 1280, height: 1024 });
+  mainWindow.loadURL("file://" + __dirname + "/index.html");
+  mainWindow.on("closed", () => {
+    mainWindow = null;
+  });
 
   mainWindow.webContents.openDevTools();
 
