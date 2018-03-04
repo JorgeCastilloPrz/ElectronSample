@@ -15,7 +15,8 @@
     "start": "electron -r babel-register .",
     "lint": "eslint src test",
     "fixLint": "eslint --fix src test",
-    "test": "jest"
+    "test": "jest",
+    "dist": "yarn build && electron-packager . --platform=darwin --arch=x64 --out=dist --overwrite"
   },
   "author": "jorgecastilloprz",
   "homepage": "https://github.com/JorgeCastilloPrz/ElectronSample#readme",
@@ -25,6 +26,7 @@
     "moment": "^2.21.0",
     "monet": "^0.8.10",
     "react": "^16.2.0",
+    "react-scripts": "^1.1.1",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
@@ -33,6 +35,8 @@
     "redux-devtools": "^3.4.1"
   },
   "devDependencies": {
+    "jest": "^22.4.2",
+    "babel-jest": "^22.4.1",
     "babel-loader": "^7.1.3",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.3.13",
