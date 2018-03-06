@@ -1,20 +1,26 @@
 import {
   ADD_LOCATION,
-  ADD_CURRENT_LOCATION
+  SET_CURRENT_LOCATION,
+  SET_ZOOM_LEVEL
 } from '../actions/actions.js'
 import addLocation from '../actions/actions.js'
 
 const initialState = {
+  zoomLevel = 0.0,
   currentLocation: {
-    latitude = 0,
-    longitude = 0
+    latitude = 0.0,
+    longitude = 0.0
   },
   locations: []
 }
 
 function nearbyLocationsAppReducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_CURRENT_LOCATION:
+    case SET_ZOOM_LEVEL:
+      return Object.assign({}, state, {
+        zoomLevel: action.zoom
+      })
+    case SET_CURRENT_LOCATION:
       return Object.assign({}, state, {
         currentLocation: {
           latitude = action.latitude,
