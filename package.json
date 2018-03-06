@@ -21,7 +21,6 @@
     "dist": "yarn build && electron-packager . --platform=darwin --arch=x64 --out=dist --overwrite"
   },
   "dependencies": {
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "electron": "^1.8.2",
     "electron-store": "^1.3.0",
     "google-map-react": "^0.32.0",
